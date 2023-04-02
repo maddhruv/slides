@@ -1,0 +1,129 @@
+/* Dracula spec: https: //spec.draculatheme.com/ */
+
+:root {
+  /*
+    default theme color
+    can be overrided by uses `themeConfig` option
+   */
+
+  /* Dracula colors: https: //draculatheme.com/contribute */
+  --background: #0e141b;
+  --current-line: #34495e;
+  --foreground: hsl(60, 30%, 96%);
+  --comment: #7b8b94;
+  --cyan: #8be9fd;
+  --green: #50fa7b;
+  --orange: hsl(31, 100%, 71%);
+  --pink: hsl(326, 100%, 74%);
+  --purple: #bd93f9;
+  --red: #ff5555;
+  --yellow: #f1fa8c;
+
+  /* Brand Colors */
+  --linkedin: #0072b1;
+  --github: #fafafa;
+  --twitter: #00acee;
+}
+
+.slidev-layout.cover,
+.slidev-layout.intro {
+  @apply h-full grid;
+
+  h1 {
+    @apply text-6xl leading-20;
+    color: var(--purple);
+  }
+
+  h1 + p {
+    @apply -mt-2 text-color-$comment mb-4;
+  }
+
+  p + h2,
+  ul + h2,
+  table + h2 {
+    @apply mt-10;
+  }
+}
+
+#slide-content {
+  @apply text-color-$foreground bg-$background !important;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply leading-20;
+  }
+
+  h1 {
+    @apply text-6xl;
+    color: var(--purple);
+  }
+
+  h2 {
+    @apply text-5xl;
+    color: var(--cyan);
+  }
+
+  h3 {
+    @apply text-4xl;
+    color: var(--green);
+  }
+
+  h4 {
+    @apply text-3xl;
+    color: var(--red);
+  }
+
+  strong {
+    color: var(--yellow);
+  }
+
+  em {
+    @apply text-color-$yellow;
+  }
+
+  a {
+    color: var(--cyan);
+  }
+
+  ul,
+  ol {
+    li::marker {
+      @apply text-color-$cyan;
+    }
+  }
+
+  blockquote {
+    @apply bg-transparent text-color-$yellow border-none;
+
+    /* ℹ️ "font-italic" isn't working */
+    font-style: italic;
+  }
+
+  kbd {
+    @apply text-color-$green;
+  }
+
+  /* ℹ️ Update background color of code. We made it darker so we don't get same color for slide bg & code bg. */
+  .slidev-code.shiki {
+    background: hsl(231, 15%, 10%) !important;
+  }
+}
+
+.no-border {
+  border: none;
+}
+
+/* Brand */
+.linkedin {
+  color: var(--linkedin);
+}
+.github {
+  color: var(--github);
+}
+.twitter {
+  color: var(--twitter);
+}

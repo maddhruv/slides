@@ -1,0 +1,44 @@
+{
+  "name": "slidev-theme-dracula",
+  "version": "0.1.0",
+  "keywords": [
+    "slidev-theme",
+    "slidev",
+    "dracula",
+    "dracula-theme",
+    "dark-theme",
+    "theme"
+  ],
+  "engines": {
+    "node": ">=14.0.0",
+    "slidev": ">=0.19.3"
+  },
+  "scripts": {
+    "build": "slidev build example.md",
+    "dev": "slidev example.md --open",
+    "export": "slidev export example.md",
+    "screenshot": "slidev export example.md --format png",
+    "release": "bumpp && npm publish"
+  },
+  "dependencies": {
+    "@slidev/types": "^0.39.0",
+    "codemirror-theme-vars": "^0.1.1",
+    "prism-theme-vars": "^0.2.4",
+    "theme-vitesse": "^0.6.2"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^0.39.0",
+    "bumpp": "^8.2.1"
+  },
+  "slidev": {
+    "colorSchema": "dark",
+    "highlighter": "shiki",
+    "defaults": {
+      "fonts": {
+        "sans": "Source Sans",
+        "mono": "Fira Code"
+      },
+      "hightlighter": "shiki"
+    }
+  }
+}
