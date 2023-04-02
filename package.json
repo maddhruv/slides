@@ -2,7 +2,7 @@
   "name": "slidev-template",
   "private": true,
   "scripts": {
-    "clean": "rm -rf dist",
+    "clean": "rm -rf dist && mkdir dist",
     "prebuild": "npm run clean",
     "build": "node index.js",
     "dev": "slidev --open",
@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@iconify-json/mdi": "^1.1.50",
-    "@iconify-json/uim": "^1.1.5"
+    "@iconify-json/uim": "^1.1.5",
+    "pug": "^3.0.2"
   }
 }

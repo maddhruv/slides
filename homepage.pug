@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title="Dhruv Jain's Slides"
+    link(rel='stylesheet', href='/home.css')
+  
+  body
+    h1="Dhruv Jain's Slides"
+
+    mixin slide(id, title)
+      a(class='slide' id=id href=`/${id}`)
+        h2= title
+    div(class="slides")
+      for item in slides
+        +slide(item.id, item.title)
