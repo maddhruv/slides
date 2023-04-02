@@ -2,7 +2,9 @@
   "name": "slidev-template",
   "private": true,
   "scripts": {
-    "build": "slidev build",
+    "clean": "rm -rf dist",
+    "prebuild": "npm run clean",
+    "build": "node index.js",
     "dev": "slidev --open",
     "export": "slidev export"
   },
