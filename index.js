@@ -2,39 +2,30 @@ const { exec, execSync } = require("child_process");
 const pug = require("pug");
 const fs = require("fs");
 
-const slides = ["slides", "test"];
 const buildCommands = [];
 
 const newSlides = [
-  { id: "slides", title: "Slides" },
-  { id: "test", title: "Test" },
+  { id: "mastering-typescript", title: "Mastering TypeScript" },
 ];
 
-slides.forEach((slide) => {
+newSlides.forEach((slide) => {
   buildCommands.push(
-    `slidev build ${slide}.md --base /${slide} --out dist/${slide}`
+    `slidev build ${slide.id}.md --base /${slide.id}/ --out dist/${slide.id}`
   );
 });
 
-const promises = buildCommands.map((command) => {
-  return new Promise((resolve, reject) => {
-    exec(command, (error, stdout, stderr) => {
-      if (error) {
-        reject(error);
-      } else {
-        resolve(stdout);
-      }
-    });
-  });
-});
+const promises = buildCommands.map(
+  (command) =>
+    new Promise((resolve, reject) => {
+      exec(command, (error, stdout) => {
+        error ? reject(error) : resolve(stdout);
+      });
+    })
+);
 
 Promise.all(promises)
-  .then(() => {
-    console.log("Done! ✅");
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+  .then(() => console.log("Done! ✅"))
+  .catch((error) => console.error(error));
 
 const compiledFunction = pug.compileFile("homepage.pug");
 
