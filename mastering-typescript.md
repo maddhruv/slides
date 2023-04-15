@@ -6,7 +6,7 @@ lineNumbers: false
 info: false
 drawings:
   persist: false
-transition: slide-right
+transition: slide-left
 css: unocss
 monaco: true
 ---
@@ -15,7 +15,7 @@ monaco: true
 
 ---
 
-# any V/S unknown
+# any ⚔️ unknown
 
 ```ts {monaco}
 const iAmAnything: any = 1;
@@ -51,6 +51,18 @@ let c = undefined;
 It is able to infer the type based on variable type as well
 -->
 
+---
+
+# Generics 🧬
+
+<div v-click>
+Provides a mechanism to write code that doesn't need to specify a specific type.
+</div>
+
+<!-- 
+Upto the caller to specify the type the generic function/class/interface
+will be working with.
+-->
 ---
 src: ./shared/follow-me.md
 ---
