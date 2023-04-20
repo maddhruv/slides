@@ -54,7 +54,7 @@
   h4,
   h5,
   h6 {
-    @apply leading-20;
+    @apply leading-20 mb-4;
   }
 
   h1 {
@@ -63,17 +63,17 @@
   }
 
   h2 {
-    @apply text-5xl;
+    @apply text-4xl;
     color: var(--cyan);
   }
 
   h3 {
-    @apply text-4xl;
+    @apply text-3xl;
     color: var(--green);
   }
 
   h4 {
-    @apply text-3xl;
+    @apply text-2xl;
     color: var(--red);
   }
 
@@ -110,6 +110,17 @@
   /* ℹ️ Update background color of code. We made it darker so we don't get same color for slide bg & code bg. */
   .slidev-code.shiki {
     background: hsl(231, 15%, 10%) !important;
+  }
+
+  code {
+    background: var(--current-line);
+    color: var(--green);
+    padding: 0.2em 0.4em;
+  }
+
+  code:before,
+  code:after {
+    content: "";
   }
 }
 

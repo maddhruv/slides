@@ -55,14 +55,53 @@ It is able to infer the type based on variable type as well
 
 # Generics 🧬
 
-<div v-click>
 Provides a mechanism to write code that doesn't need to specify a specific type.
-</div>
+
+- Can be used with `interface`, `class`, `function`.
+
+```ts {monaco}
+function reverse(items: any[]) {
+  return items.reverse();
+}
+
+const reversed = reverse([1,2,3]);
+```
 
 <!-- 
 Upto the caller to specify the type the generic function/class/interface
 will be working with.
 -->
+
+---
+
+## Constraining the type of T 🚧
+
+In most instances, we will want to limit the type of `T` in order to only allow
+a specific set of types to be used within our generic code.
+
+```ts {monaco}
+function getLength<T>(input: T): number {
+  return input.length;
+}
+
+const l1 = getLength(123);
+const l2 = getLength('dhruv');
+```
+
+---
+
+## Generic from a Generic 🪝
+
+Deriving generic types from other generic types.
+
+```ts {monaco}
+function getValue<T, Keys extends keyof T>(ob: T, key: Keys): T[Keys] | number {
+  return ob[key] || 404;
+}
+
+const a = getValue({x: 1}, 'x')
+```
+
 ---
 src: ./shared/follow-me.md
 ---
