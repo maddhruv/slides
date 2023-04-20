@@ -15,6 +15,22 @@ monaco: true
 
 ---
 
+How you can go from the **Foundational Knowledge** to **Developing Advance Types**.
+
+```ts
+const fruit: string = 'apple';
+```
+
+to
+
+```ts
+type DeepReadonly<T> = keyof T extends never
+  ? T
+  : { readonly [k in keyof T]: DeepReadonly<T[k]> };
+```
+
+---
+
 # any ⚔️ unknown
 
 ```ts {monaco}
@@ -101,6 +117,70 @@ function getValue<T, Keys extends keyof T>(ob: T, key: Keys): T[Keys] | number {
 
 const a = getValue({x: 1}, 'x')
 ```
+
+---
+
+## Conditional Types ⚖️
+
+TypeScript conditional types allow you to define a type that depends on a condition. They are often used in generic types to specify different types based on a given condition.
+
+Here's an example of how to use conditional types in TypeScript to create a type that is either an array or a single value, depending on the input:
+
+```ts {monaco}
+type ArrayOfValue<T> = T extends any[] ? T : [T];
+```
+
+---
+
+## Pick
+
+One of the Utility Types by TypeScript
+
+```ts {monaco}
+interface User {
+  firstName: string;
+  lastName: string;
+  age: number;
+}
+
+type Sub = Pick<User, 'firstName' | 'lastName'>;
+
+type MyPick = 
+
+```
+
+<!--
+<T, K extends keyof T> = {[k in K]: T[k]}
+-->
+
+---
+
+## infer 🎲
+
+Is used in conditional types to infer the type of a parameter or return value
+based on some other type.
+
+```ts {monaco}
+type TupleToUnion<T> = T extends Array<infer ITEMS> ? ITEMS : never;
+```
+
+<!-- 
+type MyReturnType<T> = T extends () => infer R ? R : never
+
+const foo = () => 1
+
+type Foo = MyReturnType<typeof foo>
+-->
+<!-- 
+type ExtractValueType<T, K extends keyof T> = T extends {[k in K]: infer V} ? V : never;
+
+const obj = {
+  name: 'Dhruv',
+  age: 21
+}
+
+type Bro = ExtractValueType<typeof obj, 'age'>
+ -->
 
 ---
 src: ./shared/follow-me.md

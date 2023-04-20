@@ -112,14 +112,17 @@
     background: hsl(231, 15%, 10%) !important;
   }
 
-  code {
+  p > code,
+  li > code {
     background: var(--current-line);
     color: var(--green);
     padding: 0.2em 0.4em;
   }
 
-  code:before,
-  code:after {
+  p > code:before,
+  p > code:after,
+  li > code:before,
+  li > code:after {
     content: "";
   }
 }
